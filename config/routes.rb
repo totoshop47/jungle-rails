@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    resources :categories, only: [:index, :new, :create]
+    # get '/categories' => 'categories#index'
+    # get '/categories/new' => 'categories#new'
+    # post '/categories' => 'categories#create'
+
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -63,10 +69,9 @@ Rails.application.routes.draw do
   #     post 'toggle'
   #   end
   #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
+  #   resources :photos, concerns: :
+  # Example resource within a namespace:
+  #   namespace :do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
