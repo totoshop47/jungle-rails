@@ -1,0 +1,10 @@
+
+<h2> Thank you for your purchase! <%= @email %></h2><br>
+<hr>
+<p>Confirmation receipt for your purchase</p>
+<h3>Order Summary:</h3>
+  <% @order.line_items.each do |item| %>
+    <p><%= item.product.name %></p>
+  <% end %>
+<br>
+<p>Your total: <%= humanized_money_with_symbol @order.total %></p>
