@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+  protected
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+    username == ENV['username'] && password == ENV['password']
+    end
+  end
+
   def cart
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end
