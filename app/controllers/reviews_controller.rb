@@ -6,9 +6,9 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.create(review_params)
 
     if @review.save
-        redirect_to @product, notice: 'Review has been submitted!'
+        redirect_to @product
     else
-        redirect_to @product, notice: "Errors"
+        redirect_to @product
     end
   end
 

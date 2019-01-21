@@ -46,8 +46,10 @@
         </span>
       </h4>
       <p><%= review.description %></p>
-        <%= link_to fa_icon("trash"), [@product, review], class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
+      <% if current_user.id == review.id %>
+        <%= link_to fa_icon("trash"), [@product, review], class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Delete your Review?" } %>
+        </div>
+      <% end %>
   <% end %>
 
 </section>
